@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/HomeScreen";
 import PlannerScreen from "../screens/PlannerScreen";
+import WorkoutDetailScreen from "../screens/WorkoutItemScreen";
 import React from "react";
 import { FontAwesome } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
@@ -19,11 +20,16 @@ const Stack = createStackNavigator();
 
 function RootNavigator(){
     return (
-        <Stack.Navigator initialRouteName="Home">
+        <Stack.Navigator>
                 <Stack.Screen 
                     name="Root"
                     component={BottomTabNavigator}
                     options={{ headerShown: false }}
+                />
+                <Stack.Screen 
+                    name="WorkoutDetail"
+                    component={WorkoutDetailScreen}
+                    options={{title: "Workout Info"}}
                 />
             </Stack.Navigator>
     );

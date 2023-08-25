@@ -2,10 +2,10 @@ import React from "react";
 import { View, Text, StyleSheet, FlatList, Pressable } from "react-native";
 import { StackNavigationProp } from "@react-navigation/stack"
 import { ParamListBase, RouteProp } from "@react-navigation/native";
-import data from "../data.json";
 import { Workout } from "../types/data";
 import WorkoutItem from "../components/WorkoutItem";
 import { MontserratText } from "../components/styled/MontserratText";
+import { useWorkouts } from "../hooks/useWorkouts";
 
 type HomeScreenProps = {
     navigation: StackNavigationProp<ParamListBase, "Home">;
@@ -13,6 +13,7 @@ type HomeScreenProps = {
 };
 
 export default function HomeScreen({navigation}: HomeScreenProps){
+    const workouts = useWorkouts();
     
     // useEffect(()=>{
     //     console.log("Rending Home Screen");
@@ -23,7 +24,8 @@ export default function HomeScreen({navigation}: HomeScreenProps){
     const PressableItem = ({item}:{item:Workout}) => {
         return(
             <Pressable
-            onPress={() => alert(`I am pressed - ${item.name}`)}
+            onPress={() => 
+                navigation.navigate("WorkoutDetail", {slug:item.slug})}
             >
                 <WorkoutItem item={item} />
             </Pressable>
@@ -40,7 +42,7 @@ export default function HomeScreen({navigation}: HomeScreenProps){
             </MontserratText>
             {/* <Text>{ JSON.stringify(data) }</Text> */}
             <FlatList 
-                data={data as Workout[]} 
+                data={workouts} 
                 keyExtractor={item => item.slug}
                 renderItem={PressableItem}
             />
