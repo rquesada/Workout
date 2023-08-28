@@ -11,7 +11,11 @@ export const useWorkouts = () => {
             const _workouts = await getWorkouts();    
             setWorkouts(_workouts);
         }
-        getData();
+
+        if (isFocused){
+            getData();
+        }
+        
     },[isFocused]);
 
     return workouts;

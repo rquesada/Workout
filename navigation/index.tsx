@@ -3,7 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "../screens/HomeScreen";
 import PlannerScreen from "../screens/PlannerScreen";
-import WorkoutDetailScreen from "../screens/WorkoutItemScreen";
+import WorkoutDetailScreen from "../screens/WorkoutDetailScreen";
 import React from "react";
 import { FontAwesome } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
