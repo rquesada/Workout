@@ -25,7 +25,9 @@ export function Modal({
                 animationType="slide"
             >
                 <View style={styles.centerView}>
+                    <View style={styles.contentView}>
                     {children}
+                    </View>
                     <PressableText 
                         onPress={() => {
                             setModalVisible(false);
@@ -54,5 +56,8 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center"
+    },
+    contentView:{
+        marginBottom: 20,
     }
 });
