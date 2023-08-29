@@ -34,7 +34,6 @@ export default function HomeScreen({navigation}: HomeScreenProps){
     
     return (
         <View style={styles.container}>
-            <Text style={styles.header}>New Workouts</Text>
             <MontserratText
                 style={{fontSize:30}}    
             >
