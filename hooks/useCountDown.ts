@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 
 export function useCountDown(
     idx:number,
-    initialCount: number
+    initialCount: number = -1
 ) {
     const intervalRef = useRef<number>();
     const [countDown, setCountDown] = useState(initialCount);
@@ -21,10 +21,10 @@ export function useCountDown(
                     }
                     return count - 1;
                 });
-            }, 10);
+            }, 100);
         }
         return () => cleanup()
-    }, [idx]);
+    }, [idx, isRunning]);
 
     useEffect(() => {
         setCountDown(initialCount);
@@ -46,13 +46,20 @@ export function useCountDown(
         }
     }
 
+    const start = (count?: number) => {
+        console.log(count);
+        if (count === undefined) {
+            setCountDown(initialCount); // Start from initial count
+        } else {
+            setCountDown(count); // Start from the provided count
+        }
+        setIsRunning(true);
+    };
+
     return {
         countDown,
         isRunning,
         stop:cleanup,
-        start: (count?: number) => {
-            setCountDown(count ?? initialCount);
-            setIsRunning(true);
-        }
+        start
     };
 }
