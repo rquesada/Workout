@@ -6,6 +6,7 @@ import { Workout } from "../types/data";
 import WorkoutItem from "../components/WorkoutItem";
 import { MontserratText } from "../components/styled/MontserratText";
 import { useWorkouts } from "../hooks/useWorkouts";
+import { ThemeText } from "../components/styled/ThemeText";
 
 type HomeScreenProps = {
     navigation: StackNavigationProp<ParamListBase, "Home">;
@@ -34,11 +35,7 @@ export default function HomeScreen({navigation}: HomeScreenProps){
     
     return (
         <View style={styles.container}>
-            <MontserratText
-                style={{fontSize:30}}    
-            >
-                New Workouts
-            </MontserratText>
+            <ThemeText style={styles.header}>New Workouts</ThemeText>
             {/* <Text>{ JSON.stringify(data) }</Text> */}
             <FlatList 
                 data={workouts} 

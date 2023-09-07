@@ -38,6 +38,7 @@ export default function ExerciseForm({
                                 onChangeText={onChange}
                                 value={value}
                                 style={styles.input}
+                                placeholderTextColor={"rgba(0,0,0,0.4)"}
                                 placeholder="Name"
                             />
                         }  
@@ -51,6 +52,7 @@ export default function ExerciseForm({
                         render={({ field: {onChange, value}}) => 
                             <TextInput
                                 onChangeText={onChange}
+                                placeholderTextColor={"rgba(0,0,0,0.4)"}
                                 value={value}
                                 style={styles.input}
                                 placeholder="Duration"
@@ -70,6 +72,7 @@ export default function ExerciseForm({
                                 onChangeText={onChange}
                                 value={value}
                                 style={styles.input}
+                                placeholderTextColor={"rgba(0,0,0,0.4)"}
                                 placeholder="Repetions"
                             />
                         }  
@@ -101,6 +104,7 @@ export default function ExerciseForm({
                                         onPressIn={() => setSelectionOn(true)}
                                         style={styles.input}
                                         placeholder="Type"
+                                        placeholderTextColor={"rgba(0,0,0,0.4)"}
                                         value={value}
                                     />
                                 }

@@ -1,16 +1,18 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import { NavigationContainer } from "@react-navigation/native";
+import { NavigationContainer, DarkTheme, DefaultTheme } from "@react-navigation/native";
 import HomeScreen from "../screens/HomeScreen";
 import PlannerScreen from "../screens/PlannerScreen";
 import WorkoutDetailScreen from "../screens/WorkoutDetailScreen";
 import React from "react";
 import { FontAwesome } from '@expo/vector-icons'; 
 import { Entypo } from '@expo/vector-icons';
+import { ColorSchemeName } from "react-native";
 
-export default function Navigation(){
+export default function Navigation({colorScheme}:{colorScheme: ColorSchemeName}){
     return(
-        <NavigationContainer>
+        <NavigationContainer 
+            theme={colorScheme === 'light' ? DefaultTheme : DarkTheme}>
             <RootNavigator />
         </NavigationContainer>
     );
